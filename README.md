@@ -86,7 +86,3 @@ uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 - **Шрифты**: Google Fonts (Poppins, Roboto)
 - **Погодные данные**: OpenWeatherMap API (или демо)
 
-## Скриншоты
-
-![Скриншот интерфейса](https://via.placeholder.com/800x450/1a2980/26d0ce?text=Weather+App+Interface)
-

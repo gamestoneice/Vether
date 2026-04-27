@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Погодное приложение</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Погодный информер</h1>
+            <p class="subtitle">Узнайте текущую погоду в любом городе мира</p>
+        </header>
+
+        <main>
+            <section class="search-section">
+                <div class="input-group">
+                    <input type="text" id="cityInput" placeholder="Введите город (например, Москва)" autocomplete="off">
+                    <button id="searchBtn"><i class="fas fa-search"></i> Поиск</button>
+                    <button id="locationBtn"><i class="fas fa-location-arrow"></i> Мое местоположение</button>
+                </div>
+                <div class="hint">
+                    <i class="fas fa-lightbulb"></i> Попробуйте: Москва, Санкт-Петербург, Новосибирск, Лондон, Токио
+                </div>
+            </section>
+
+            <section class="weather-display" id="weatherDisplay">
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Загружаем данные о погоде...</p>
+                </div>
+                <div class="weather-card" id="weatherCard">
+                    <div class="weather-header">
+                        <h2 id="cityName">Москва</h2>
+                        <div class="date" id="currentDate"></div>
+                    </div>
+                    <div class="weather-body">
+                        <div class="temperature-section">
+                            <div class="temp-main">
+                                <span id="temperature">12</span>
+                                <span class="unit">°C</span>
+                            </div>
+                            <div class="feels-like">
+                                Ощущается как <span id="feelsLike">10</span>°C
+                            </div>
+                            <div class="description" id="description">Облачно с прояснениями</div>
+                        </div>
+                        <div class="icon-section">
+                            <img id="weatherIcon" src="https://openweathermap.org/img/wn/10d@2x.png" alt="Погода">
+                        </div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="detail">
+                            <i class="fas fa-tint"></i>
+                            <div>
+                                <div class="label">Влажность</div>
+                                <div class="value" id="humidity">78%</div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <div class="label">Ветер</div>
+                                <div class="value" id="windSpeed">3.5 м/с</div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div>
+                                <div class="label">Давление</div>
+                                <div class="value" id="pressure">1013 гПа</div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <i class="fas fa-thermometer-half"></i>
+                            <div>
+                                <div class="label">Макс / Мин</div>
+                                <div class="value" id="tempRange">15° / 8°</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="error-card" id="errorCard">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Ошибка</h3>
+                    <p id="errorMessage">Не удалось загрузить данные о погоде.</p>
+                    <button onclick="hideError()">Понятно</button>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h3><i class="fas fa-info-circle"></i> Как это работает?</h3>
+                <p>Приложение использует API OpenWeatherMap для получения актуальных метеоданных. Вы можете ввести любой город в мире или использовать ваше текущее местоположение.</p>
+                <p>Данные обновляются в реальном времени. Для получения точного прогноза убедитесь, что название города написано правильно.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2026 Погодное приложение на FastAPI | 
+                <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a> | 
+                <a href="/health" target="_blank">Статус API</a>
+            </p>
+            <p class="credits">Создано с <i class="fas fa-heart"></i> для демонстрации возможностей FastAPI и фронтенда</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
